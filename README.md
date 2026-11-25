@@ -679,4 +679,4 @@ Ao final da Sprint 2, queremos ter um protótipo que carregue os três ativos si
 15. ARTESP. *Registro de Mensagens em Painéis — Portal de Dados Abertos.* Base pública com registros de mensagens em PMVs de rodovias estaduais concedidas; pode servir como fonte complementar para experimentos, após verificar o conteúdo e a estrutura dos arquivos. Disponível em: <https://dadosabertos.artesp.sp.gov.br/dataset/registro-de-mensagens-em-paineis>
 16. STREAMLIT. *Streamlit documentation.* Disponível em: <https://docs.streamlit.io/>. Acesso em: 24 nov. 2026.
 17. PLOTLY. *Plotly Python graphing library.* Disponível em: <https://plotly.com/python/>. Acesso em: 24 nov. 2026.
-18. FOLIUM. *Folium documentation.* Disponível em: <https://python-visualization.github.io/folium/>. Acesso em: 24 nov. 202
+18. FOLIUM. *Folium documentation.* Disponível em: <https://python-visualization.github.io/folium/>. Acesso em: 24 no
