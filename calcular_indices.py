@@ -1,14 +1,14 @@
-"""Confere os cálculos do CMA (Sprint 1) a partir de dados/dados_simulados_CMA.csv.
+"""Confere os cálculos do CMA (Sprint 1) a partir de dados_simulados_CMA.csv.
 
 Recalcula A, T, IH, classe, C, PF, IP e prioridade com as regras do README
 e compara com os valores registrados no CSV. Uso:
 
-    python scripts/calcular_indices.py
+    python calcular_indices.py
 """
 import csv
 from pathlib import Path
 
-CSV = Path(__file__).resolve().parent.parent / "dados" / "dados_simulados_CMA.csv"
+CSV = Path(__file__).resolve().parent / "dados_simulados_CMA.csv"
 PESOS = {"D": 0.30, "P": 0.25, "A": 0.20, "T": 0.15, "M": 0.10}
 
 
