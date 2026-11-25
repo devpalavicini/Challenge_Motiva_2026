@@ -1,0 +1,4 @@
+ativo_id,tipo,disponibilidade_D,desempenho_P,alarmes_baixa,alarmes_medias,alarmes_altas,score_A,queda_P_30d,score_T,score_M,indice_saude,classe_ih,seguranca_S,operacao_O,sem_redundancia_R,score_criticidade,C,probabilidade_PF,indice_prioridade,prioridade
+CFTV-001,CFTV,98,92,1,0,0,90,1,90,100,93.9,Normal,4,3,4,3.7,4,1,4,Baixa
+PMV-014,PMV,94,72,0,2,0,60,3,70,80,76.7,Atenção,5,4,5,4.7,5,3,15,Alta
+SCA-003,SCA,70,55,0,1,1,40,6.5,35,50,53.0,Crítico,4,4,4,4.0,4,5,20,Crítica
