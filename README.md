@@ -1,10 +1,13 @@
 # Challenge_Motiva_2026
 
-Integrantes:
-Deborah Santos Palavicini | RM 575785
+**Integrantes:**
 
-Centro Inteligente de Monitoramento de Ativos Rodoviários (CMA)
+- Deborah Santos Palavicini — RM 575785
+
+**Centro Inteligente de Monitoramento de Ativos Rodoviários (CMA)**
+
 Challenge 2026.2 — FIAP + Motiva
+
 - Tema: Manutenção Preditiva Inteligente
 - Sprint: 1 — Pesquisa, modelagem e proposta de solução
 
@@ -34,10 +37,10 @@ Challenge 2026.2 — FIAP + Motiva
 | Caminho | Conteúdo |
 |---|---|
 | `README.md` | Documento central de pesquisa, análise e proposta |
-| `docs/arquitetura_CMA.png` | Diagrama da arquitetura do CMA |
-| `docs/painel_operacional_wireframe.png` | Rascunho (wireframe) do painel operacional |
-| `dados/dados_simulados_CMA.csv` | Três ativos simulados com todos os indicadores calculados |
-| `scripts/calcular_indices.py` | Script Python que recalcula IH, criticidade, PF e IP e confere o CSV |
+| `arquitetura_CMA.png` | Diagrama da arquitetura do CMA |
+| `painel_operacional_wireframe.png` | Rascunho (wireframe) do painel operacional |
+| `dados_simulados_CMA.csv` | Três ativos simulados com todos os indicadores calculados |
+| `calcular_indices.py` | Script Python que recalcula IH, criticidade, PF e IP e confere o CSV |
 
 ---
 
@@ -197,7 +200,7 @@ Modelo inicial em Python:
 - Uma **lista de dicionários** representa os ativos ou as leituras simuladas.
 - Cada dicionário contém pares `chave: valor`, por exemplo `ativo_id`, `tipo`, `km` e `estado`.
 - O `ativo_id` funciona como chave de ligação entre cadastro, leituras, alarmes e ordens de serviço.
-- Para uma primeira demonstração, os registros podem ser lidos de arquivos CSV (ver [`dados/dados_simulados_CMA.csv`](dados/dados_simulados_CMA.csv)).
+- Para uma primeira demonstração, os registros podem ser lidos de arquivos CSV (ver [`dados_simulados_CMA.csv`](dados_simulados_CMA.csv)).
 
 Exemplo de registros simulados:
 
@@ -271,7 +274,7 @@ for ativo in ativos:
     ativo["classe_ih"] = classificar_ativo(ativo["indice_saude"])
 ```
 
-Ao deixar cada tarefa em uma função, evitamos copiar o mesmo cálculo em vários lugares. A rotina principal percorre os ativos, chama as funções necessárias, guarda os resultados e atualiza as informações que aparecem no painel. O script [`scripts/calcular_indices.py`](scripts/calcular_indices.py) aplica essas funções aos três ativos simulados e confere os valores do CSV.
+Ao deixar cada tarefa em uma função, evitamos copiar o mesmo cálculo em vários lugares. A rotina principal percorre os ativos, chama as funções necessárias, guarda os resultados e atualiza as informações que aparecem no painel. O script [`calcular_indices.py`](calcular_indices.py) aplica essas funções aos três ativos simulados e confere os valores do CSV.
 
 ---
 
@@ -340,7 +343,7 @@ Nesta frente escolhemos a **Opção C — arquitetura da solução** (seção 5.
 
 Organizamos a arquitetura a partir das cinco camadas mostradas no kickoff da Motiva: Aquisição, Tratamento, Modelagem, Diagnóstico e Decisão. O repositório central, os controles de qualidade, o painel e a validação humana dão suporte ao fluxo.
 
-![Diagrama da arquitetura do CMA](docs/arquitetura_CMA.png)
+![Diagrama da arquitetura do CMA](arquitetura_CMA.png)
 
 _Figura 1 — Arquitetura proposta do CMA: das fontes de informação ao painel, à validação humana e ao retorno da manutenção._
 
@@ -429,7 +432,7 @@ Os prazos são metas ilustrativas da proposta acadêmica, não SLA oficial da Mo
 
 O painel não foi pensado apenas para mostrar números. Ele precisa ajudar o operador a responder três perguntas: **o equipamento está piorando? Como ele se compara aos demais? Onde está localizado?** Por isso, mantivemos as três visões pedidas no kickoff da Motiva: (1) gráfico de tendência com alertas por ativo; (2) comparação do índice de saúde; e (3) mapa georreferenciado com destaque dos ativos críticos. Também incluímos um resumo da situação geral e uma fila de atendimento.
 
-![Wireframe do painel operacional do CMA](docs/painel_operacional_wireframe.png)
+![Wireframe do painel operacional do CMA](painel_operacional_wireframe.png)
 
 _Figura 2 — Rascunho do painel operacional com os três ativos simulados. Não se trata de um sistema utilizado pela Motiva: ativos, valores e séries são simulados, e o mapa é esquemático por quilômetro (o georreferenciamento real exige latitude e longitude verificadas no cadastro)._
 
@@ -509,7 +512,7 @@ Vamos considerar o primeiro painel pronto quando:
 
 ## 6. Teste do modelo com três ativos simulados
 
-> **Sobre os exemplos:** os três registros abaixo são fictícios. Criamos esses valores para testar as fórmulas e mostrar como o CMA reagiria a equipamentos em condições diferentes (normal, atenção e crítica). Eles não são medições reais nem dados internos da Motiva. Os mesmos dados estão em [`dados/dados_simulados_CMA.csv`](dados/dados_simulados_CMA.csv) e podem ser conferidos com `python scripts/calcular_indices.py`.
+> **Sobre os exemplos:** os três registros abaixo são fictícios. Criamos esses valores para testar as fórmulas e mostrar como o CMA reagiria a equipamentos em condições diferentes (normal, atenção e crítica). Eles não são medições reais nem dados internos da Motiva. Os mesmos dados estão em [`dados_simulados_CMA.csv`](dados_simulados_CMA.csv) e podem ser conferidos com `python calcular_indices.py`.
 
 ### 6.1 Dados de entrada
 
@@ -649,7 +652,7 @@ Vamos começar pela versão mais simples e acrescentar recursos só depois que o
 - Ativo sem histórico de manutenção.
 - Ativo com criticidade alta e boa saúde, para confirmar que não é automaticamente crítico.
 - Dois ativos com a mesma prioridade, para conferir o critério de desempate (menor IH e depois maior tempo de indisponibilidade).
-- Conferência manual dos três cálculos simulados desta Sprint (já automatizada em `scripts/calcular_indices.py`).
+- Conferência manual dos três cálculos simulados desta Sprint (já automatizada em `calcular_indices.py`).
 
 ### 9.5 Resultado esperado
 
@@ -676,4 +679,4 @@ Ao final da Sprint 2, queremos ter um protótipo que carregue os três ativos si
 15. ARTESP. *Registro de Mensagens em Painéis — Portal de Dados Abertos.* Base pública com registros de mensagens em PMVs de rodovias estaduais concedidas; pode servir como fonte complementar para experimentos, após verificar o conteúdo e a estrutura dos arquivos. Disponível em: <https://dadosabertos.artesp.sp.gov.br/dataset/registro-de-mensagens-em-paineis>
 16. STREAMLIT. *Streamlit documentation.* Disponível em: <https://docs.streamlit.io/>. Acesso em: 24 nov. 2026.
 17. PLOTLY. *Plotly Python graphing library.* Disponível em: <https://plotly.com/python/>. Acesso em: 24 nov. 2026.
-18. FOLIUM. *Folium documentation.* Disponível em: <https://python-visualization.github.io/folium/>. Acesso em: 24 nov. 2026.
+18. FOLIUM. *Folium documentation.* Disponível em: <https://python-visualization.github.io/folium/>. Acesso em: 24 nov. 202
